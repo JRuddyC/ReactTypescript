@@ -1,0 +1,27 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.image-section {
+    width: 150px;
+    height: 400px;
+    max-width: 350px;
+    max-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 100%;
+        border-radius: 6px;
+    }
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}

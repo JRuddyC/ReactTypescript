@@ -1,0 +1,11 @@
+@import '../../../assets/theme.scss';
+
+.validation-error {
+    font-size: .7em;
+    position: absolute;
+    bottom: -15px;
+    color: $danger-color;
+    font-weight: bold;
+    left: 15px;
+    text-transform: capitalize;
+}

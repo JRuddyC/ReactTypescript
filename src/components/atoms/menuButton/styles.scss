@@ -1,0 +1,62 @@
+@import '../../../assets/theme.scss';
+
+@mixin line() {
+    position: absolute;
+    height: 2px;
+    width: 90%;
+    background-color: $border-line-color;
+    transition: all ease-in-out 0.3s;
+}
+
+.menu-button {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.218);
+        border-radius: 4px;
+        transition: all ease-in-out 0.3s
+    }
+
+    .line-1 {
+        @include line();
+        transform: translateY(7px)
+    }
+
+    .line-2 {
+        @include line();
+    }
+
+    .line-3 {
+        @include line();
+        transform: translateY(-7px)
+    }
+}
+
+.active {
+    .line-1 {
+        @include line();
+        transform: translateY(50%);
+        transform: rotate(45deg);
+    }
+
+    .line-2 {
+        @include line();
+        transform: translateX(50px);
+        background-color: $transparent;
+    }
+
+    .line-3 {
+        @include line();
+        transform: translateY(50%);
+        transform: rotate(-45deg);
+    }
+}

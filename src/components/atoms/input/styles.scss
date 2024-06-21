@@ -1,0 +1,40 @@
+@import '../../../assets/theme.scss';
+
+@mixin input-theme ($theme) {
+    padding: 6px 12px;
+    border: none;
+    font-size: 16px;
+    height: 35px;
+    width: 100%;
+    background-color: $transparent;
+    color: $theme;
+}
+
+.input {
+
+    @include input-theme($text-subtitle-color);
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active {
+        color: $text-subtitle-color;
+    }
+}
+
+.input-primary {
+    @include input-theme($primary-color)
+}
+
+.input-success {
+    @include input-theme($success-color)
+}
+
+.input-danger {
+    @include input-theme($danger-color)
+}
+
+.rounded {
+    border-radius: 4px;
+}

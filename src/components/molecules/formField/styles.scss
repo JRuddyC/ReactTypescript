@@ -1,0 +1,42 @@
+@import '../../../assets/theme.scss';
+
+.form-field {
+    height: 50px;
+    display: inline-block;
+    width: auto;
+    position: relative;
+    margin-bottom: 15px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $background-soft;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: $primary-color;
+        transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+    }
+
+    &:focus-within::after,
+    &:active::after {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.input-error {
+    &::before {
+        background-color: $danger-color;
+    }
+}

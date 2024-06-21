@@ -1,0 +1,17 @@
+@import '../../../assets/theme.scss';
+
+.label {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px 5px 5px 12px;
+    color: $text-gray-color;
+}
+
+.label-success {
+    color: $success-color;
+}
+
+.label-danger {
+    color: $danger-color;
+}
