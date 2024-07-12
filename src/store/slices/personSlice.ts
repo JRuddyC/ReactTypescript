@@ -10,17 +10,13 @@ const initialState: IPerson = {
     ci: null,
     age: null,
     phone: null,
-    status: 'idle'
+    status: 'idle',
 }
 
 export const fetchDetailedInfo = createAsyncThunk(
     'personSlice/fetchDetailedInfo',
-    async ({ id, token }: { id: number | null; token: string | null }) => {
-        const response = await api.get(`person/${id}`, {
-            headers: {
-                'Authorization': `${token}`
-            }
-        });
+    async ({ id }: { id: number | null }) => {
+        const response = await api.get(`person/${id}`);
         return response.data.data;
     }
 );
@@ -31,7 +27,8 @@ export const personSlice = createSlice({
     reducers: {
         setPerson: (state, action: PayloadAction<IPerson>) => {
             state = action.payload
-        },
+        }
+        ,
         resetPerson: (state) => {
             state.id = null
             state.name = null

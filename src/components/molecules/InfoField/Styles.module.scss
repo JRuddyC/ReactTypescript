@@ -1,0 +1,12 @@
+@import '../../../assets/theme.scss';
+.field-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    text-transform: capitalize;
+
+    span {
+        width: 150px;
+        color: $text-gray-color;
+    }
+}

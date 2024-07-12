@@ -1,0 +1,49 @@
+@import '../../../assets/theme.scss';
+
+.table {
+    padding: 10px;
+    thead {
+        tr {
+            &:first-child {
+                position: sticky;
+                top: 0;
+                z-index: 1;
+            }
+
+            th {
+                &:first-child {
+                    position: sticky;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                &:first-child {
+                    position: sticky;
+                    left: 0px;
+                }
+            }
+        }
+    }
+}
+.content-table{
+    overflow: auto;
+    min-height: 610px;
+    height: auto;
+}
+
+.small {
+    width: 500px;
+}
+
+.medium {
+    width: 900px;
+}
+
+.large {
+    width: 1200px;
+}

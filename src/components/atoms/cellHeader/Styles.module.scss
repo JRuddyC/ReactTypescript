@@ -1,0 +1,32 @@
+@import '../../../assets/theme.scss';
+
+@mixin cell-theme($theme, $color) {
+    background-color: $theme;
+    color: $color;
+}
+
+.cell {
+    padding: 10px 20px 10px 20px;
+    text-transform: lowercase;
+    cursor: default;
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+}
+
+.cell-primary {
+    @include cell-theme($table-header-primary, $text-white-color )
+}
+
+.cell-secondary {
+    @include cell-theme($table-header-secondary, $text-white-color )
+}
+
+.cell-dark {
+    @include cell-theme($table-header-dark, $text-white-color )
+}
+
+.cell-light {
+    @include cell-theme($table-header-light, $text-white-color )
+}

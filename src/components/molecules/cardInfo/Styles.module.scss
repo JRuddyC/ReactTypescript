@@ -1,0 +1,25 @@
+@import '../../../assets/theme.scss';
+
+.card {
+    background-color: $background-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 740px) {
+    .card-body {
+        flex-direction: column;
+    }
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 import LoginForm from '../../organisms/loginForm/LoginForm'
-import './styles.scss'
+import Styles from './Styles.module.scss'
 
 const LoginTemplate: React.FC = () => {
     return (
-        <div className='login-section'>
+        <div className={Styles['login-section']}>
             <LoginForm />
         </div>
     )

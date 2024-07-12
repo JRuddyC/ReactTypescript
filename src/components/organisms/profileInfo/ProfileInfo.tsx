@@ -1,35 +1,14 @@
 import React from 'react'
-import { usePersonDetails } from '../../../hooks/usePersonDetails'
-import './styles.scss'
-import profile from '../../../assets/img/deadwing.jpg'
+import Subtitle from '../../atoms/subtitle/Subtitle'
+import InfoSection from '../infoSection/InfoSection'
+import CardInfo from '../../molecules/cardInfo/CardInfo'
 
 const ProfileInfo: React.FC = () => {
-    const { personInfo } = usePersonDetails()
-    const { name, surname, ci, age, phone } = personInfo
     return (
-        <div className='card'>
-            <div className='image-section'>
-                <img src={profile} alt="profile" />
-            </div>
-            <div className='info-section'>
-                <span>
-                    Nombre   : {name}
-                </span>
-                <span>
-                    Apellido : {surname}
-                </span>
-                <span>
-                    Cédula de identidad: {ci}
-                </span>
-                <span>
-                    Edad     : {age}
-                </span>
-                <span>
-                    Contacto : {phone}
-                </span>
-            </div>
-        </div>
+        <CardInfo
+            title={<Subtitle text='información' align='center' />}
+            info={<InfoSection />}
+        />
     )
 }
-
 export default ProfileInfo

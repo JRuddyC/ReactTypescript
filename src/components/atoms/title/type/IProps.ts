@@ -1,4 +1,4 @@
 export default interface IProps {
     text: string
-    align?: string
+    align?: "left" | "center" | "right" 
 }

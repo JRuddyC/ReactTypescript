@@ -9,14 +9,13 @@ export const usePersonDetails = () => {
     const dispatch = useDispatch<AppDispatch>()
     const personInfo = useSelector(selectPerson)
     const user = useSelector(selectUser)
-    const token = useSelector(selectSessionToken)
-
+    const { accessToken } = useSelector(selectSessionToken)
 
     useEffect(() => {
-        if (personInfo.status === 'idle') {
-            dispatch(fetchDetailedInfo({ id: user.person_id, token: token.accessToken }))
+        if (personInfo.status !== 'succeeded') {
+            dispatch(fetchDetailedInfo({ id: user.person_id }))
         }
-    }, [])
+    }, [accessToken])
 
     return { personInfo, user }
 }

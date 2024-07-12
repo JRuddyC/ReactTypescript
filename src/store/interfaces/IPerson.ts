@@ -5,5 +5,5 @@ export default interface IPerson {
     ci: string | null
     age: number | null
     phone: string | null
-    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    status?: 'idle' | 'loading' | 'succeeded' | 'failed';
 }

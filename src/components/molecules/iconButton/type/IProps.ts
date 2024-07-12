@@ -5,8 +5,9 @@ export default interface IProps {
     children?: React.ReactNode
     variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'transparent'
     rounded?: boolean
-    outline?: 'primary' | 'secondary' | 'success' | 'danger'
+    outline?: boolean
     type?: 'submit' | 'reset' | 'button'
     text?: string
+    right?: boolean
     onClick?: React.MouseEventHandler<HTMLButtonElement>
 }

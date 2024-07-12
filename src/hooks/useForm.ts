@@ -35,7 +35,13 @@ const useForm = (initialValues: IFormValues, validationRules: { [key: string]: I
         return setErrors({ ...errors, [key]: msg })
     }, [])
 
-    return { values, errors, handleChange, handleSubmit, handleSetError }
+    const handleResetForm = () => {
+        console.log("sad");
+
+        return setValues(initialValues)
+    }
+
+    return { values, errors, handleChange, handleSubmit, handleSetError, handleResetForm }
 }
 
 export default useForm

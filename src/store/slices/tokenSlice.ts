@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { RootState } from "../index"
+import { RootState } from ".."
+
 
 interface IToken {
     accessToken: string | null
@@ -11,6 +12,8 @@ const initialState: IToken = {
     refreshToken: null
 }
 
+
+
 export const tokenSlice = createSlice({
     name: 'tokenSlice',
     initialState,
@@ -19,13 +22,16 @@ export const tokenSlice = createSlice({
             state.accessToken = action.payload.accessToken
             state.refreshToken = action.payload.refreshToken
         },
+        setAuthToken: (state, action: PayloadAction<IToken>) => {
+            state.accessToken = action.payload.accessToken
+        },
         resetToken: (state) => {
             state.accessToken = null
             state.refreshToken = null
         }
-    }
+    },
 })
 
-export const { setToken, resetToken } = tokenSlice.actions
+export const { setToken, resetToken, setAuthToken } = tokenSlice.actions
 export const selectSessionToken = (state: RootState) => state.appReducer.tokenState
 export default tokenSlice.reducer

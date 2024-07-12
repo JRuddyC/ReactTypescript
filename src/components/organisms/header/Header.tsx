@@ -1,5 +1,5 @@
 import React, { ChangeEvent, SyntheticEvent, useEffect, useRef, useState } from 'react'
-import './styles.scss'
+import Styles from './Styles.module.scss'
 import InputIcon from '../../molecules/inputIcon/InputIcon'
 import IconPDF from '../../../assets/icons/IconPDF'
 import UserIcon from '../../atoms/userIcon/UserIcon'
@@ -42,8 +42,8 @@ const Header: React.FC = () => {
     }, [])
 
     return (
-        <div className='header'>
-            <div className='section-user'>
+        <div className={Styles.header}>
+            <div className={Styles['section-user']}>
                 <form onSubmit={handleSearch}>
                     <InputIcon onChange={handleChange} placeholder='search' onClick={handleSearch}>
                         <IconPDF />

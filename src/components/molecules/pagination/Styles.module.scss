@@ -1,0 +1,13 @@
+@import '../../../assets/theme.scss';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    button {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+}

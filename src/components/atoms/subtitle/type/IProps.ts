@@ -1,4 +1,6 @@
 export default interface IProps {
-    text: string
-    align?: string
+    text?: string
+    align?: "left" | "center" | "rigth"
+    variant?: "success" | "danger"
+    color?: "dark" | "white"
 }

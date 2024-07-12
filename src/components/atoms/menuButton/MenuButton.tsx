@@ -1,14 +1,18 @@
 import React from 'react'
 import IProps from './type/IProps'
-import './styles.scss'
+import Styles from './Styles.module.scss'
+import classNames from 'classnames'
 
 const MenuButton: React.FC<IProps> = (props: IProps) => {
     const { onClick, status } = props
     return (
-        <div className={`menu-button ${status ? 'active' : ''}`} onClick={onClick}>
-            <div className="line-1"></div>
-            <div className="line-2"></div>
-            <div className="line-3"></div>
+        <div
+            className={classNames(Styles['menu-button'], { [Styles.active]: status })}
+            onClick={onClick}
+        >
+            <div className={Styles['line-1']}></div>
+            <div className={Styles['line-2']}></div>
+            <div className={Styles['line-3']}></div>
         </div>
     )
 }

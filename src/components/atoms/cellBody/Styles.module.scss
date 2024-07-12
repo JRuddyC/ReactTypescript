@@ -1,0 +1,39 @@
+@import '../../../assets/theme.scss';
+
+@mixin cell-theme($theme, $color) {
+    background-color: $theme;
+}
+
+.cell {
+    padding: 5px 20px 5px 20px;
+    text-transform: lowercase;
+    cursor: default;
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+
+    span {
+        color: $text-gray-color;
+    }
+}
+
+.cell-default {
+    @include cell-theme($table-body-white, $text-dark-color )
+}
+
+.cell-primary {
+    @include cell-theme($table-body-primary, $text-dark-color )
+}
+
+.cell-secondary {
+    @include cell-theme($table-body-secondary, $text-dark-color )
+}
+
+.cell-dark {
+    @include cell-theme($table-body-dark, $text-dark-color)
+}
+
+.cell-light {
+    @include cell-theme($table-body-light, $text-dark-color)
+}

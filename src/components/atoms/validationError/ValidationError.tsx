@@ -1,11 +1,11 @@
 import React from 'react'
 import IProps from './type/IProps'
-import './styles.scss'
+import Styles from './Styles.module.scss'
 
 const InputError: React.FC<IProps> = (props: IProps) => {
     const { error } = props
     return (
-        <span className='validation-error'>
+        <span className={Styles['validation-error']}>
             {error}
         </span>
     )

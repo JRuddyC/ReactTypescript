@@ -6,6 +6,6 @@ export default interface IProps {
     children?: React.ReactNode,
     variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'transparent'
     rounded?: boolean
-    outline?: 'primary' | 'secondary' | 'success' | 'danger'
-    onClick?: MouseEventHandler
+    outlined?: boolean
+    onClick?: MouseEventHandler 
 }

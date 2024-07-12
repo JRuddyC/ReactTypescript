@@ -1,0 +1,10 @@
+@import '../../../assets//theme.scss';
+
+.text {
+    color: $text-gray-color;
+    text-transform: lowercase;
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+}

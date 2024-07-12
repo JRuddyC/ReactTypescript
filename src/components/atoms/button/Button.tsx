@@ -1,9 +1,21 @@
 import IProps from './type/IProps'
-import './styles.scss'
+import Styles from './Styles.module.scss'
+import classNames from 'classnames'
 const Button: React.FC<IProps> = (props: IProps) => {
-    const { name, children, variant, rounded, outline, type, onClick } = props
+    const { name, children, variant = 'primary', rounded = false, outlined = false, type, onClick } = props
     return (
-        <button name={name} onClick={onClick} className={`btn ${variant ? 'btn-' + variant : ''} ${outline ? 'btn-outline-' + outline : ''} ${rounded ? 'rounded' : ''}`} type={type}>
+        <button
+            name={name}
+            onClick={onClick}
+            className={
+                classNames(
+                    Styles.btn,
+                    Styles['btn-' + variant],
+                    { [Styles.rounded]: rounded },
+                    { [Styles['btn-outline-' + variant]]: outlined }
+                )
+            }
+            type={type}>
             {children}
         </button>
     )

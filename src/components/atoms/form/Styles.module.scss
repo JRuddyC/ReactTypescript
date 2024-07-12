@@ -1,0 +1,15 @@
+@import '../../../assets//theme.scss';
+
+.form {
+    width: fit-content;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    max-width: 350px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: $background-white;
+}

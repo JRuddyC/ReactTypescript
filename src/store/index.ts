@@ -1,9 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userReducer from './slices/userSlice'
-import tokenSessionReducer from './slices/tokenSlice'
 import personReducer from './slices/personSlice'
-import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
+import userRoleReducer from './slices/userRoleSlice'
+import uiReducer from './slices/uiSlice'
+import storage from "redux-persist/lib/storage"
+import { persistReducer, persistStore } from "redux-persist"
+import tokenReducer from './slices/tokenSlice'
+import peopleReducer from './slices/peopleSlice'
 
 const persistConfig = {
     key: 'root',
@@ -13,7 +16,7 @@ const persistConfig = {
 
 export const rootReducer = combineReducers({
     userState: userReducer,
-    tokenState: tokenSessionReducer,
+    tokenState: tokenReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -21,13 +24,18 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 export const store = configureStore({
     reducer: {
         appReducer: persistedReducer,
-        personReducer
+        personReducer,
+        userRoleReducer,
+        uiReducer,
+        peopleReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false,
         }),
 })
+
+export const persistor = persistStore(store)
 
 export type RootState = ReturnType<typeof store.getState>
 

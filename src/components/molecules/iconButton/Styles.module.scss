@@ -1,0 +1,16 @@
+@import '../../../assets/theme.scss';
+
+
+.icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-icon {
+    width: 100%;
+}
+
+.rigth{
+    flex-direction: row-reverse;
+}

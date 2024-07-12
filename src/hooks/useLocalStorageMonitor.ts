@@ -6,15 +6,12 @@ import { resetPerson } from "../store/slices/personSlice";
 
 const useLocalStorageMonitor = () => {
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
         const handleStorageChange = (event: StorageEvent) => {
             if (event.key === 'persist:root') {
                 const persistedState = JSON.parse(event.newValue || '{}');
                 const newToken = persistedState?.auth?.token;
-
-                console.log(newToken);
-
                 if (!newToken) {
                     dispatch(resetToken());
                     dispatch(resetUser())

@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react'
-import './styles.scss'
+import Styles from './Styles.module.scss'
 import Button from '../../atoms/button/Button'
 import Separator from '../../atoms/separator/Separator'
 import IProps from './type/Iprops'
@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { resetToken } from '../../../store/slices/tokenSlice'
 import { resetUser } from '../../../store/slices/userSlice'
 import { resetPerson } from '../../../store/slices/personSlice'
+import classNames from 'classnames'
 
 const MenuUser: React.FC<IProps> = (props: IProps) => {
     const navigate = useNavigate()
@@ -24,7 +25,9 @@ const MenuUser: React.FC<IProps> = (props: IProps) => {
         dispatch(resetPerson())
     }
     return (
-        <div className={`menu-user ${status ? 'active-menu' : ''}`} >
+        <div
+            className={classNames(Styles['menu-user'], { [Styles['active-menu']]: status })}
+        >
             <Button name='profile' onClick={handleNavigate} rounded variant='transparent' type='button'>Profile</Button>
             <Separator direction='horizontal' />
             <Button name='settings' onClick={handleNavigate} rounded variant='transparent' type='button'>Settings</Button>

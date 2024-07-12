@@ -7,8 +7,12 @@ import IProps from './type/IProps'
 import Header from '../header/Header'
 import Container from '../../atoms/container/Container'
 import Title from '../../atoms/title/Title'
-import './styles.scss'
+import Styles from './Styles.module.scss'
 import { useNavigate } from 'react-router-dom'
+import classNames from 'classnames'
+import DropdownButton from '../../molecules/dropdownButton/DropdownButton'
+import Button from '../../atoms/button/Button'
+import Breadcrumb from '../../molecules/breadcrumb/Breadcrumb'
 
 const Sidebar: React.FC<IProps> = (props: IProps) => {
 
@@ -41,12 +45,15 @@ const Sidebar: React.FC<IProps> = (props: IProps) => {
 
 
     return (
-        <div className={`page`} >
-            <aside ref={sidebarRef} className={`sidebar ${status ? 'collapse' : ''}`}>
-                <div className='header-sidebar'>
+        <div className={Styles.page} >
+            <aside ref={sidebarRef}
+                // className={`sidebar ${status ? 'collapse' : ''}`}
+                className={classNames(Styles.sidebar, { [Styles.collapse]: status })}
+            >
+                <div className={Styles['header-sidebar']}>
                     <MenuButton onClick={handleCickMenu} status={!status} />
                 </div>
-                <nav className='nav'>
+                <nav className={Styles.nav}>
                     <Title text='My dashboard' />
                     <Separator direction='horizontal' />
                     <IconButton name='home' onClick={handleNavigate} variant='transparent' text='Home'  ><IconPDF /></IconButton>
@@ -54,11 +61,26 @@ const Sidebar: React.FC<IProps> = (props: IProps) => {
                     <Separator direction='horizontal' />
                     <IconButton name='students' onClick={handleNavigate} variant='transparent' text='Students'  ><IconPDF /></IconButton>
                     <IconButton name='reports' onClick={handleNavigate} variant='transparent' text='Reports'  ><IconPDF /></IconButton>
+                    <DropdownButton right variant='transparent' text='Management'>
+                        <Button name='management/users' onClick={handleNavigate} variant='transparent'>users</Button>
+                        <Button name='management/people' onClick={handleNavigate} variant='transparent'>people</Button>
+                    </DropdownButton>
+                    {/* <DropdownButton right variant='transparent' text='menu dropdown'>
+                        <Button variant='transparent'>opcion a</Button>
+                        <Button variant='transparent'>opcionn b</Button>
+                    </DropdownButton>
+                    <DropdownButton right variant='transparent' text='menu dropdown'>
+                        <Button variant='transparent'>opcion a</Button>
+                        <Button variant='transparent'>opcionn b</Button>
+                    </DropdownButton> */}
                 </nav>
             </aside>
-            <div className={`main-section ${status ? 'collapse-main' : ''}`} >
+            <div
+                className={classNames(Styles['main-section'], { [Styles['collapse-main']]: status })}
+            >
                 <Header />
                 <Container>
+                    <Breadcrumb />
                     {props.children}
                 </Container>
             </div>

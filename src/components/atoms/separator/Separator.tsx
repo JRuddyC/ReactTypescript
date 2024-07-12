@@ -1,11 +1,12 @@
 import React from 'react'
 import IProps from './type/IProps'
-import './styles.scss'
+import Styles from './Styles.module.scss'
+import classNames from 'classnames'
 
 const Separator: React.FC<IProps> = (props: IProps) => {
     const { direction } = props
     return (
-        <div className={`${direction} separator`} />
+        <div className={classNames(Styles.separator, Styles[direction])} />
     )
 }
 

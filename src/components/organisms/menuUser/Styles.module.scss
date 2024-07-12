@@ -1,0 +1,21 @@
+@import '../../../assets/theme.scss';
+
+.menu-user {
+    opacity: 0;
+    display: none;
+    width: 150px;
+    border-radius: 6px;
+    position: fixed;
+    top: 75px;
+    right: 10px;
+    background-color: $background-dark;
+    padding: 6px;
+    transition: ease-in-out 0.5s;
+    z-index: 1000;
+}
+
+.active-menu {
+    opacity: 1;
+    display: block;
+    transition: ease-in-out 0.5s;
+}

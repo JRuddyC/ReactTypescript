@@ -1,0 +1,61 @@
+@import '../../../assets/theme.scss';
+
+.alert {
+    background-color: $danger-color-hover;
+    width: 300px;
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 85px;
+    right: 0;
+    z-index: 1200;
+}
+
+.alert-success {
+    background-color: $success-color-alert;
+}
+
+.alert-danger {
+    background-color: $danger-color-alert;
+}
+
+.alert-enter {
+    opacity: 0;
+    transform: translateX(+100vh);
+}
+
+.alert-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 500ms, transform 500ms;
+}
+
+.alert-exit {
+    opacity: 1;
+}
+
+.alert-exit-active {
+    opacity: 0;
+    transform: translateX(+100vh);
+    transition: opacity 500ms, transform 500ms;
+}
+
+@media screen and (max-width: 740px) {
+    .alert {
+        top: 0;
+        width: 100%;
+    }
+
+    .alert-enter {
+        transform: translateY(-100vh);
+    }
+
+    .alert-active {
+        transform: translateY(0);
+    }
+
+    .alert-exit-active {
+        transform: translateY(-100vh);
+    }
+}

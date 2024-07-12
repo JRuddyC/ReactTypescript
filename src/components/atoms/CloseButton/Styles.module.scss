@@ -1,0 +1,21 @@
+@import '../../../assets/theme.scss';
+
+.btn-icon {
+    width: 35px !important;
+    height: 35px !important;
+    background-color: $danger-color;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+
+    &:hover {
+        background-color: $danger-color-hover ;
+    }
+}
+
+.rounded {
+    border-radius: 6px;
+}

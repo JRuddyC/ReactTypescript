@@ -11,6 +11,9 @@ import StudentsTemplate from '../components/templates/StudentsTemplate/StudentsT
 import ReportsTemplate from '../components/templates/ReportsTemplate/ReportsTemplate'
 import OopsTemplate from '../components/templates/Oops.template/OopsTemplate'
 import { useAppSelector } from '../hooks/hooksRedux'
+import ManageUsersTemplate from '../components/templates/ManageUsersTemplate/ManageUsersTemplate'
+import ManagePeopleTemplate from '../components/templates/ManagePeopleTemplate/ManagePeopleTemplate'
+
 
 
 const AppRouter: React.FC = () => {
@@ -27,6 +30,9 @@ const AppRouter: React.FC = () => {
                 <Route path='/about' element={token ? <Sidebar><AboutTemplate /></Sidebar> : <Navigate to={'/'} />} />
                 <Route path='/students' element={token ? <Sidebar><StudentsTemplate /></Sidebar> : <Navigate to={'/'} />} />
                 <Route path='/reports' element={token ? <Sidebar><ReportsTemplate /></Sidebar> : <Navigate to={'/'} />} />
+                <Route path='/management/users' element={token ? <Sidebar><ManageUsersTemplate /></Sidebar> : <Navigate to={'/'} />} />
+                <Route path='/management/people' element={token ? <Sidebar><ManagePeopleTemplate /></Sidebar> : <Navigate to={'/'} />} />
+                {/* <Route path='/management/people/:page' element={token ? <TablePeople /> : <Navigate to={'/'} />} /> */}
                 <Route path='/*' element={<NotFoundTemplate />} />
             </Routes>
         </BrowserRouter>

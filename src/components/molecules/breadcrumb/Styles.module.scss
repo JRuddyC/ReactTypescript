@@ -1,0 +1,14 @@
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    cursor: default;
+
+    .separator {
+        margin: 0 8px;
+        content: '';
+        background-color: #888;
+        width: 5px;
+        height: 5px;
+        border-radius: 50px;
+    }
+}

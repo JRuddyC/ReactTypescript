@@ -1,0 +1,30 @@
+.form-section {
+    width: fit-content;
+}
+
+.body-section {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+
+    .aside-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 300px;
+    }
+
+    .table-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        overflow: auto;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .body-section {
+        display: block;
+    }
+}

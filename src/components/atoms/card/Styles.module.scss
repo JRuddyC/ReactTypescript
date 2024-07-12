@@ -1,0 +1,29 @@
+@import '../../../assets/theme.scss';
+
+.card {
+    width: auto;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: default;
+}
+
+.small {
+    max-width: 300px;
+}
+
+.medium {
+    max-width: 500px;
+}
+
+.large {
+    max-width: 700px;
+}
+
+.primary {
+    background-color: $primary-color-hover;
+}
+
+.default {
+    background-color: $background-white;
+}
