@@ -7,16 +7,18 @@ import storage from "redux-persist/lib/storage"
 import { persistReducer, persistStore } from "redux-persist"
 import tokenReducer from './slices/tokenSlice'
 import peopleReducer from './slices/peopleSlice'
+import globalReducer from './slices/globalSlice'
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['userState', 'tokenState'],
+    whitelist: ['userState', 'tokenState','globalState'],
 }
 
 export const rootReducer = combineReducers({
     userState: userReducer,
     tokenState: tokenReducer,
+    globalState: globalReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

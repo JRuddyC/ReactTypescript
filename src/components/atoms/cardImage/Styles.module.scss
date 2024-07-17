@@ -1,0 +1,16 @@
+@import '../../../assets/theme.scss';
+
+.card-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: radial-gradient(circle, $background-dark 0%, $background-soft 50%, $primary-color 100%);
+
+    img {
+        height: 150px;
+        margin: 25px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2)
+    }
+}

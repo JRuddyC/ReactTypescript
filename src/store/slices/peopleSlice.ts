@@ -1,40 +1,34 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "..";
-import api from "../../services/axios";
 import IPeople from "../interfaces/IPeople";
 import IPerson from "../interfaces/IPerson";
-
-
+import { fetchGetPeople, fetchGetPersonById } from "../thunks/peopleThunks";
 
 const initialState: IPeople = {
     rows: [],
     status: 'idle',
-    count: 0
-}
-
-interface IPage {
-    page: number
-    limit: number
-}
-
-export const fetchGetPeople = createAsyncThunk(
-    'peopleSlice/fetchGetPeople',
-    async ({ pagination }: { pagination: IPage }) => {
-        const { page, limit } = pagination
-        const response = await api.get('person', { params: { page, limit } })
-        return response.data.data
+    count: 0,
+    personSelected: {
+        id: 0,
+        name: 'name',
+        surname: 'surname',
+        ci: 'xxxxxxxxxx-xx',
+        age: 0,
+        phone: '00 0000000',
+        status: "idle"
     }
-)
+}
 
 export const peopleSlice = createSlice({
     name: 'people/slice',
     initialState,
     reducers: {
-        setPeople: (state, action: PayloadAction<IPeople>) => {
-            state.rows = action.payload.rows
-            state.status = "succeeded"
-        },
         setOnePerson: (state, action: PayloadAction<{ id: number, person: IPerson }>) => {
+
+            if (state.personSelected.id === action.payload.id) {
+                state.personSelected = action.payload.person
+            }
+
             state.rows = state.rows.map((item) => {
                 if (item.id === action.payload.id) {
                     return action.payload.person;
@@ -43,11 +37,12 @@ export const peopleSlice = createSlice({
             });
         },
         addPerson: (state, action: PayloadAction<IPerson>) => {
-            state.rows = state.rows.concat(action.payload)
+            if (state.rows.length < 10)
+                state.rows = state.rows.concat(action.payload)
+            state.count++
         },
         resetPeople: (state) => {
-            state.rows = []
-            state.status = "idle"
+            state = initialState
         }
     },
     extraReducers(builder) {
@@ -63,9 +58,19 @@ export const peopleSlice = createSlice({
             .addCase(fetchGetPeople.rejected, (state) => {
                 state.status = "failed"
             })
+            .addCase(fetchGetPersonById.pending, (state) => {
+                state.personSelected.status = "loading"
+            })
+            .addCase(fetchGetPersonById.fulfilled, (state, action: PayloadAction<IPerson>) => {
+                state.personSelected = action.payload
+                state.personSelected.status = "succeeded"
+            })
+            .addCase(fetchGetPersonById.rejected, (state) => {
+                state.personSelected.status = "failed"
+            })
     }
 })
 
-export const { setPeople, resetPeople, setOnePerson, addPerson } = peopleSlice.actions
+export const { resetPeople, setOnePerson, addPerson } = peopleSlice.actions
 export const selectPeople = (state: RootState) => state.peopleReducer
 export default peopleSlice.reducer

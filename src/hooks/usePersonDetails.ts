@@ -10,7 +10,6 @@ export const usePersonDetails = () => {
     const personInfo = useSelector(selectPerson)
     const user = useSelector(selectUser)
     const { accessToken } = useSelector(selectSessionToken)
-
     useEffect(() => {
         if (personInfo.status !== 'succeeded') {
             dispatch(fetchDetailedInfo({ id: user.person_id }))

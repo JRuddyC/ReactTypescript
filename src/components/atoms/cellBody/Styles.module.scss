@@ -6,12 +6,8 @@
 
 .cell {
     padding: 5px 20px 5px 20px;
-    text-transform: lowercase;
+    text-transform: capitalize;
     cursor: default;
-
-    &::first-letter {
-        text-transform: capitalize;
-    }
 
     span {
         color: $text-gray-color;

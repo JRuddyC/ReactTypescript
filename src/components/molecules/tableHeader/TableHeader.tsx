@@ -8,7 +8,6 @@ const TableHeader: React.FC<IProps> = (props: IProps) => {
     return (
         <thead>
             <tr>
-                <CellHeader scope='col' variant={variant} key={0}>n</CellHeader>
                 {
                     keys?.map((item, index) => (
                         <CellHeader scope='col' variant={variant} key={index + 1}>{item}</CellHeader>

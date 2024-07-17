@@ -1,8 +1,8 @@
 import Modal from "../../molecules/modal/Modal"
 import PersonForm from "../../organisms/Forms/Person/PersonForm"
 import Styles from './Styles.module.scss'
-import CardAssingUser from "../../organisms/cards/CardAssingUser"
 import TablePeople from "../../organisms/tablePeople/TablePeople"
+import CardInfoPerson from "../../organisms/cards/CardInfoPerson"
 
 const ManagePeopleTemplate = () => {
     return (
@@ -12,7 +12,7 @@ const ManagePeopleTemplate = () => {
             </div>
             <div className={Styles["body-section"]}>
                 <div className={Styles["aside-section"]}>
-                    <CardAssingUser />
+                    <CardInfoPerson />
                 </div>
                 <div className={Styles["table-section"]}>
                     <TablePeople />

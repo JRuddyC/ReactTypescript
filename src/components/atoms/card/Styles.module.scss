@@ -3,21 +3,26 @@
 .card {
     width: auto;
     margin: 10px;
-    padding: 10px;
     border-radius: 5px;
     cursor: default;
 }
 
 .small {
+    min-width: 250px;
+    width: auto;
     max-width: 300px;
 }
 
 .medium {
+    min-width: 300px;
+    width: auto;
     max-width: 500px;
 }
 
 .large {
-    max-width: 700px;
+    min-width: 500px;
+    width: auto;
+    width: 700px;
 }
 
 .primary {

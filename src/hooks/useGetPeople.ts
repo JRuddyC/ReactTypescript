@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch } from "../store"
-import { fetchGetPeople, selectPeople } from "../store/slices/peopleSlice"
+import { selectPeople } from "../store/slices/peopleSlice"
 import { useEffect } from "react"
 import { selectSessionToken } from "../store/slices/tokenSlice"
+import { fetchGetPeople } from "../store/thunks/peopleThunks"
 
 interface IPage {
     page: number,
